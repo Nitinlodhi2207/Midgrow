@@ -7,7 +7,7 @@ import { useAutoSwipe } from '@/hooks/useAutoSwipe';
 
 // Import section components
 import HeroSection from '@/components/home/HeroSection';
-import ServicesSection from '@/components/home/ServicesSection';
+import DesktopHeroSection from '@/components/home/DesktopHeroSection';
 import IndustrySolutionsSection from '@/components/home/IndustrySolutionsSection';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
 import VisionValuesSection from '@/components/home/VisionValuesSection';
@@ -143,24 +143,23 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative">
-      {/* Hero Section */}
-      <HeroSection
-        typedText={typedText}
-        mousePosition={mousePosition}
-        isInteracting={isInteracting}
-        isHydrated={isHydrated}
-        touchRipples={touchRipples}
-        digitalParticles={digitalParticles}
-        burstEffects={burstEffects}
-        onServiceClick={handleServiceClick}
-        onGetStartedClick={handleGetStartedClick}
-      />
-
-      {/* Services Section */}
-      <ServicesSection
-        hoveredService={hoveredService}
-        setHoveredService={setHoveredService}
-      />
+      {/* Hero Section - Desktop */}
+      <DesktopHeroSection />
+      
+      {/* Hero Section - Mobile */}
+      <div className="lg:hidden">
+        <HeroSection
+          typedText={typedText}
+          mousePosition={mousePosition}
+          isInteracting={isInteracting}
+          isHydrated={isHydrated}
+          touchRipples={touchRipples}
+          digitalParticles={digitalParticles}
+          burstEffects={burstEffects}
+          onServiceClick={handleServiceClick}
+          onGetStartedClick={handleGetStartedClick}
+        />
+      </div>
 
       {/* Solutions by Industry Section */}
       <IndustrySolutionsSection
@@ -169,7 +168,7 @@ export default function Home() {
         sectorsCarouselRef={sectorsCarouselRef}
         isHydrated={isHydrated}
         onIndustryConsultation={handleIndustryConsultation}
-        onCustomIndustry={handleCustomIndustry}
+        // onCustomIndustry={handleCustomIndustry}
       />
 
       {/* Why Choose Us Section */}
